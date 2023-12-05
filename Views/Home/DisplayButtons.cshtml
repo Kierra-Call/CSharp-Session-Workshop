@@ -1,0 +1,21 @@
+@model User
+@{
+    ViewData["Title"] = "DisplayButtons";
+}
+<div class="justify-content-between align-tems-center border-bottom d-flex">
+    <h1>Welcome @Context.Session.GetString("UserName")</h1>
+    <form asp-controller="Home" asp-action="Logout" method="POST">
+    <button class="btn btn-danger">Log out</button>
+    </form>
+</div>
+<div>
+    <h1>@Context.Session.GetInt32("Number")</h1>
+    <div class="d-flex justify-content-center">
+        <a asp-controller="Home" class="btn btn-primary m-1" asp-route-type="add" asp-route-number="1" asp-action="Modify">+ 1</a>
+        <a asp-controller="Home" class="btn btn-primary m-1" asp-route-type="subtract" asp-route-number="1" asp-action="Modify">- 1</a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a asp-controller="Home" class="btn btn-primary m-1" asp-route-type="multiply" asp-route-number="2" asp-action="Modify">x 2</a>
+        <a asp-controller="Home" class="btn btn-primary m-1" asp-route-type="add" asp-action="Random">+ Random</a>
+    </div>
+</div>
